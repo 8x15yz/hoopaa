@@ -5,7 +5,7 @@
     :style="{ 'height': height }">
     <div class="hide-on-small">
       <div class="logo-wrapper" @click="clickLogo"><div class="ic ic-logo"/></div>
-      <!-- 이부분 사이드바거에서 가져옴 -->
+      <!-- 이부분 사이드바에서 가져왔음-->
       <div
         :default-active="String(state.activeIndex)"
         active-text-color="#ffd04b"

@@ -14,8 +14,8 @@
           </el-input>
         </div>
         <div class="button-wrapper">
-          <el-button>회원가입</el-button>
-          <el-button type="primary" @click="clickLogin">로그인</el-button>
+           <router-link to="/signUp"><el-button>회원가입</el-button></router-link>
+          <router-link to="/login"><el-button>로그인</el-button></router-link>
         </div>
       </div>
 
@@ -129,7 +129,7 @@ export default {
     position: relative;
     top: 14px;
   }
-  
+
   .main-header .hide-on-big .logo-wrapper {
     display: inline-block;
     margin: 0 calc(50% - 51px)

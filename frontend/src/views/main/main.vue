@@ -3,15 +3,15 @@
     <main-header
       :height="`70px`"
       @openLoginDialog="onOpenLoginDialog"/>
-    <!-- <el-container class="main-container"> -->
-      <!-- <el-aside class="hide-on-small" width="240px">
+    <el-container class="main-container">
+      <el-aside class="hide-on-small" width="240px">
         <main-sidebar
           :width="`240px`"/>
-      </el-aside> -->
+      </el-aside>
       <el-main>
         <router-view></router-view>
       </el-main>
-    <!-- </el-container> -->
+    </el-container>
     <main-footer :height="`110px`"/>
   </el-container>
   <login-dialog

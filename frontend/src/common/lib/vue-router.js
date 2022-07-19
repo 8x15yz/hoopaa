@@ -4,6 +4,9 @@ import ConferencesDetail from '@/views/conferences/conference-detail'
 import History from '@/views/history/history'
 import SignUp from '@/views/main/components/sign-up'
 import Login from '@/views/main/components/login'
+import Start from '@/views/start/start'
+import Participate from '@/views/participate/participate'
+import mainPage from '@/views/main-page/main-page'
 
 const fullMenu = require('@/views/main/menu.json')
 function makeRoutesFromMenu () {
@@ -12,6 +15,10 @@ function makeRoutesFromMenu () {
       return { path: fullMenu[key].path, name: key, component: Home  }
     } else if (key === 'history') {
       return { path: fullMenu[key].path, name: key, component: History }
+    } else if (key === 'start') { // 미팅 시작하기
+      return { path: fullMenu[key].path, name: key, component: Start }
+    } else if (key === 'participate') { // 미팅 참여하기
+      return { path: fullMenu[key].path, name: key, component: Participate }
     } else { // menu.json 에 들어있는 로그아웃 메뉴
       return null
     }
@@ -34,7 +41,17 @@ function makeRoutesFromMenu () {
     name: 'Login',
     component: Login
   }
-)
+  )
+  routes.push({
+    path: '/',
+    name: 'Home',
+    component: Home
+  })
+  routes.push({
+    path: '/mainPage',
+    name: 'main-page',
+    component: mainPage
+  })
   return routes
 }
 

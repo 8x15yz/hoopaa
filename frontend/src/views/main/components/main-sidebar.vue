@@ -18,9 +18,14 @@
   </el-row>
 </template>
 <style>
+.main-sidebar {
+  display: flex;
+;
+}
 .main-sidebar .el-menu {
   margin-top: 0;
   padding-left: 0;
+
 }
 .main-sidebar .hide-on-small {
   height: 100%;

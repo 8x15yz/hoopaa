@@ -3,11 +3,15 @@
     class="main-footer"
     :gutter="10">
     <div class="contents">
-      Copyright © SAMSUNG All Rights Reserved.
+      <img :src="require(`@/assets/images/071414.png`)" alt="">
     </div>
   </el-row>
 </template>
+
 <style>
+.contents > img {
+  width: 100px;
+}
 @media (max-width: 700px) {
   .main-footer {
     height: 190px;
@@ -49,6 +53,7 @@ export default {
 
     return { state }
   }
+  
 }
 </script>
 <style>

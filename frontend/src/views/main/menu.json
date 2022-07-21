@@ -1,14 +1,57 @@
 {
-  "start" : {
-    "name" : "미팅 시작하기",
+  "All" : {
+    "name" : "All",
     "hidden" : false,
-    "path" : "/start",
+    "path" : "/list",
     "children" : []
   },
-  "participate" : {
-    "name" : "미팅 참여하기",
+  "유머" : {
+    "name" : "유머",
     "hidden" : false,
-    "path" : "/participate",
+    "path" : "/list/1",
+    "children" : []
+  },
+  "정치" : {
+    "name" : "정치",
+    "hidden" : false,
+    "path" : "/list/2",
+    "children" : []
+  },
+  "경제" : {
+    "name" : "경제",
+    "hidden" : false,
+    "path" : "/list/3",
+    "children" : []
+  },
+  "사회" : {
+    "name" : "사회",
+    "hidden" : false,
+    "path" : "/list/4",
+    "children" : []
+  },
+  "문화" : {
+    "name" : "문화",
+    "hidden" : false,
+    "path" : "/list/5",
+    "children" : []
+  },
+  "교육" : {
+    "name" : "교육",
+    "hidden" : false,
+    "path" : "/list/6",
+    "children" : []
+  },
+  "과학" : {
+    "name" : "과학",
+    "hidden" : false,
+    "path" : "/list/7",
+    "children" : []
+  },
+  "스포츠" : {
+    "name" : "스포츠",
+    "hidden" : false,
+    "path" : "/list/8",
     "children" : []
   }
+
 }

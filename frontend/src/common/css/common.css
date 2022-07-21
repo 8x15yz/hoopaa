@@ -5,8 +5,9 @@ html, body {
 
 body {
   margin: 0;
-  font-family: SpoqaHanSansNeo;
+  font-family: Cafe24;
   font-weight: 400;
+  font-size: large
 }
 
 @media (max-width: 1269px) {
@@ -30,19 +31,12 @@ body {
     display: none !important;
   }
 }
-
-@font-face {
-  font-family: 'SpoqaHanSansNeo';
-  font-weight: 600;
-  src: url('../../assets/fonts/SpoqaHanSansNeo-Bold.ttf');
+.v-application {
+  font-family: 'Cafe24', sans-serif !important;
 }
 @font-face {
-  font-family: 'SpoqaHanSansNeo';
-  font-weight: 500;
-  src: url('../../assets/fonts/SpoqaHanSansNeo-Medium.ttf');
-}
-@font-face {
-  font-family: 'SpoqaHanSansNeo';
+  font-family: 'Cafe24';
   font-weight: 400;
-  src: url('../../assets/fonts/SpoqaHanSansNeo-Regular.ttf');
+  src: url('../../assets/fonts/Cafe24Ssurround.ttf') format('truetype');
 }
+

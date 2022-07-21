@@ -11,9 +11,8 @@
           <router-link style=text-decoration:none; to="/">
             <span class="el-menu-show-all">모든 토론보기</span>
           </router-link>
-          <el-menu-item v-for="(item, index) in state.menuItems" :key="index" :index="index.toString()">
-            <span>{{ item.title }}</span>
-          </el-menu-item>
+          <span class="el-menu-show-all">미칭 시작하기</span>
+          <span class="el-menu-show-all">미팅 참여하기</span>
         </el-menu>
 
         <div class="tool-wrapper">
@@ -202,7 +201,6 @@ export default {
   .el-menu {
     margin-right: 550px;
   }
-  
   .el-menu-item > span {
     outline: solid 1px #9747ff;
     border-radius: 5px;

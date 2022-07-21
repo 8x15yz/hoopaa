@@ -1,11 +1,12 @@
 <template>
   <el-container class="main-wrapper">
-    <main-header
-      :height="`70px`"
-      @openLoginDialog="onOpenLoginDialog"/>
+    <main-header v-if="visible" class="main-header-class" />
+      <el-container class="main-container">
+
       <el-main>
         <router-view></router-view>
       </el-main>
+    </el-container>
     <main-footer :height="`110px`"/>
   </el-container>
 </template>
@@ -14,7 +15,11 @@
   @import './main.css';
   @import '../../common/css/common.css';
   @import '../../common/css/element-plus.css';
-
+  .main-header-class {
+  position: fixed;
+  color: white;
+}
+  .el-main::-webkit-scrollbar{width: 0px;}
 </style>
 <script>
 import MainHeader from './components/main-header'
@@ -30,16 +35,31 @@ export default {
   },
   data () {
     return {
-      loginDialogOpen: false
+
+      visible: true
     }
   },
   methods: {
-    onOpenLoginDialog () {
-      this.loginDialogOpen = true
-    },
-    onCloseLoginDialog () {
-      this.loginDialogOpen = false
+
+    zeroLocation() {
+      const topPosition = window.scrollY || document.documentElement.scrollTop;
+      // console.log(topPosition, 'top')
+      if (topPosition < 790) {
+        this.visible = false
+      } else {
+        this.visible = true
+      }
+
     }
+  },
+  mounted() {
+    this.visible = false
+    document.addEventListener('scroll', this.zeroLocation);
+    // console.log('dlrjsi?', this.$router.currentRoute['_rawValue'].fullPath)
+    const mainpageRouterName = this.$router.currentRoute['_rawValue'].fullPath
+    console.log(this.$store.state.headerVisible)
+
   }
 }
 </script>
+

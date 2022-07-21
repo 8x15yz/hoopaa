@@ -11,7 +11,7 @@
   <el-checkbox-button>로그인 유지</el-checkbox-button>
 </div>
 <div>
-  <button>로그인</button>
+  <router-link to="/myPage"><button>로그인</button></router-link>
 </div>
 <div>회원이 아니신가요? <router-link to="/signUp">회원가입</router-link></div>
 </div>

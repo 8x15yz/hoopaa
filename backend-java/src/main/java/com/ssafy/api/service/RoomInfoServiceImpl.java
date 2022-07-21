@@ -35,4 +35,10 @@ public class RoomInfoServiceImpl implements RoomInfoService{
         List<RoomDescription> searchBy=roomDescriptionRepositorySupport.searchBy(keyword);
         return searchBy;
     }
+
+    @Override
+    public List<RoomDescription> findByCate(int cate) {
+        List<RoomDescription> findByCate=roomDescriptionRepositorySupport.findByCate(cate);
+        return findByCate;
+    }
 }

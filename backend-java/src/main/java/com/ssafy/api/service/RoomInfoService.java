@@ -9,4 +9,5 @@ public interface RoomInfoService {
 
     List<RoomInfo> findAll();
     List<RoomDescription> searchBy(String keyword);
+    List<RoomDescription> findByCate(int cate);
 }

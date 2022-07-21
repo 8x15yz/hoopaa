@@ -1,13 +1,12 @@
 package com.ssafy.db.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class,property = "notId")
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -26,7 +25,7 @@ public class RoomDescription {
     @OneToOne(mappedBy = "roomDescription")
     @JoinColumn(name = "id")
 //    @JsonManagedReference
-    @JsonBackReference
+//    @JsonBackReference
     private RoomInfo roomInfo;
 
     @Builder

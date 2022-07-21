@@ -34,4 +34,10 @@ public class RoomInfoController {
     public List<RoomDescription> searchBy(@PathVariable String keyword){
         return roomInfoService.searchBy(keyword);
     }
+
+    @GetMapping("/{cate}")
+    @ApiOperation(value="카테고리별 검색")
+    public List<RoomDescription> findByCate(@PathVariable int cate){
+        return roomInfoService.findByCate(cate);
+    }
 }

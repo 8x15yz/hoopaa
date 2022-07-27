@@ -144,8 +144,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateEmailAuth(Long id) {
-        User user = userRepository.findById(id).get();
+    public void updateEmailAuth(String em) {
+        User user = userRepository.findUserByEm(em).get();
 
         user.setEm_auth(true);
 
@@ -158,9 +158,9 @@ public class UserServiceImpl implements UserService {
 
         sendMail.setSubject("[HooPaa 회원가입 서비스 이메일 인증 입니다.]");
         sendMail.setText(new StringBuffer().append("<h1>HooPaa 가입 메일인증 입니다</h1>")
-                .append("<a href='http://localhost:8080/api/v1/users/certification/success/")
-                .append(user.getId())//.append("&key=").append(key)
-                .append("' target='_blenk'>가입 완료를 위해 이메일 이곳을 눌러주세요</a>").toString());
+                .append("<a href='http://localhost:8083/login?em=")
+                .append(user.getEm())//.append("&key=").append(key)
+                .append("' target='_blenk'>가입 완료를 위해 이곳을 눌러주세요</a>").toString());
         sendMail.setFrom("wonjaechoi5295@gmail.com", "HooPaa");
         sendMail.setTo(user.getEm());
         sendMail.send();

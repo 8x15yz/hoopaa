@@ -74,6 +74,12 @@ public class UserController {
 				return ResponseEntity.status(400).body(BaseResponseBody.of(400, "닉네임 중복입니다"));
 			}
 		}
+		User user = userService.getUserByEm(registerInfo.getEm());
+		try {
+			userService.sendAuthMail(user);
+		} catch (Exception e) {
+			return ResponseEntity.status(400).body(BaseResponseBody.of(400, "이메일 전송 실패"));
+		}
 		return ResponseEntity.status(200).body(BaseResponseBody.of(200, "Success"));
 	}
 
@@ -280,7 +286,7 @@ public class UserController {
 		return ResponseEntity.ok(JsonRes.of(200, "success"));
 	}
 
-	@GetMapping("/certification/success/{id}")
+	@PostMapping("/certification/success")
 	@ApiOperation(value = "이메일 인증", notes = "로그인 필요 서비스 사용을 위한 이메일 인증")
 	@ApiResponses({
 			@ApiResponse(code = 200, message = "성공"),
@@ -288,13 +294,15 @@ public class UserController {
 			@ApiResponse(code = 404, message = "사용자 없음"),
 			@ApiResponse(code = 500, message = "서버 오류")
 	})
-	public ResponseEntity<UserRes> authEmail(@PathVariable("id") long id) {
+	public ResponseEntity<UserRes> authEmail(@RequestBody Map<String ,String > userMap) {
 
-		System.out.println(id);
-		User user = userService.getUserById(id);
-		userService.updateEmailAuth(id);
+		String em = userMap.get("em");
+		System.out.println(em);
+		User user = userService.getUserByEm(em);
+		userService.updateEmailAuth(em);
 
 		return ResponseEntity.status(200).body(UserRes.of(user));
+
 	}
 
 	@PostMapping("/check/email")

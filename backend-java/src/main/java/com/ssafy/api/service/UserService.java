@@ -27,7 +27,7 @@ public interface UserService {
 	UserStatDto getUserStatById(Long id);
 	List<UserHistoryDto> getUserHistoryById(Long id);
 
-	void updateEmailAuth(Long id);
+	void updateEmailAuth(String em);
 
 	void sendAuthMail(User user) throws Exception;
 

@@ -11,7 +11,7 @@ import java.util.List;
 
 public interface RoomInfoService {
 
-    List<RoomInfoDto> findAll(long now);
-    List<RoomInfoDto> searchBy(String keyword,long now);
-    List<RoomInfoDto> findByCate(int cate,long now);
+    List<RoomInfoDto> findAll();
+    List<RoomInfoDto> searchBy(String keyword);
+    List<RoomInfoDto> findByCate(int cate);
 }

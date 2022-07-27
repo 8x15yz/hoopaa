@@ -33,23 +33,23 @@ public class RoomInfoController {
 
     @GetMapping("/all")
     @ApiOperation(value = "전체 토론방 조회")
-    public ResponseEntity<? extends BaseResponseBody> findAll(@Param("now") long now) throws JsonProcessingException {
-        List<RoomInfoDto> findAll=roomInfoService.findAll(now);
+    public ResponseEntity<? extends BaseResponseBody> findAll() throws JsonProcessingException {
+        List<RoomInfoDto> findAll=roomInfoService.findAll();
         String findAllString=mapper.writeValueAsString(findAll);
         return ResponseEntity.ok(JsonRes.of(200, "success",findAllString));
     }
     @GetMapping("/search/{keyword}")
     @ApiOperation(value="토론방 검색")
-    public ResponseEntity<? extends BaseResponseBody> searchBy(@PathVariable String keyword,@Param("now") long now) throws JsonProcessingException {
-        List<RoomInfoDto> searchBy=roomInfoService.searchBy(keyword,now);
+    public ResponseEntity<? extends BaseResponseBody> searchBy(@PathVariable String keyword) throws JsonProcessingException {
+        List<RoomInfoDto> searchBy=roomInfoService.searchBy(keyword);
         String searchByString=mapper.writeValueAsString(searchBy);
         return ResponseEntity.ok(JsonRes.of(200, "success",searchByString));
     }
 
     @GetMapping("/{cate}")
     @ApiOperation(value="카테고리별 검색")
-    public ResponseEntity<? extends BaseResponseBody> findByCate(@PathVariable int cate,@Param("now") long now) throws JsonProcessingException {
-        List<RoomInfoDto> findByCate=roomInfoService.findByCate(cate,now);
+    public ResponseEntity<? extends BaseResponseBody> findByCate(@PathVariable int cate) throws JsonProcessingException {
+        List<RoomInfoDto> findByCate=roomInfoService.findByCate(cate);
         String findByCateString=mapper.writeValueAsString(findByCate);
         return ResponseEntity.ok(JsonRes.of(200, "success",findByCateString));
     }

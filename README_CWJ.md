@@ -1,4 +1,3 @@
-
 ### 사용자 권한에 따라 서비스 이용에 제한을 두는 방법
 ```java
 http.csrf().disable(); //csrf비활성화
@@ -38,3 +37,7 @@ SecurityConfig extends **WebSecurityConfigurerAdapter** 클래스를 사용해�
     String encPassword = bCryptPasswordEncoder.encode(rawPassword); //암호화한 비밀번호
 ```
 - db에는 암호화한 비밀번호를 집어 넣는다. 
+
+## 07 27 
+- 쿠렌토 maven dependency 다운 시 문제 발생
+- 오픈비두 사용

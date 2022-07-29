@@ -1,11 +1,15 @@
 package com.ssafy.common.util;
 
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import javax.activation.DataSource;
+import java.io.File;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 public class MailUtil {
@@ -35,9 +39,16 @@ public class MailUtil {
         messageHelper.setTo(email);
     }
 
-    public void addInline(String contentId, DataSource dataSource) throws MessagingException {
-        messageHelper.addInline(contentId, dataSource);
+//    public void addInline(String contentId, DataSource dataSource) throws MessagingException {
+//        messageHelper.addInline(contentId, dataSource);
+//    }
+
+    public void addInline(String contentId, String path) throws MessagingException, IOException {
+        File file = new ClassPathResource(path).getFile();
+        FileSystemResource fileSystemResource = new FileSystemResource(file);
+        messageHelper.addInline(contentId, file);
     }
+
 
     public void send() {
         mailSender.send(message);
